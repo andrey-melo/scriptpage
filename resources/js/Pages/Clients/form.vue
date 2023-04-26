@@ -1,15 +1,16 @@
 <template>
     <head> </head>
     <crud
-        contentHeader="Clientes"
-        createTitle="Cadastrar novo Cliente"
-        updateTitle="Atualizar cadastro de Cliente"
-        :urlUpdate="route('clients.update', form.id ? form.id : 0)"
-        :urlStore="route('clients.store', form.id ? form.id : 0)"
-        :urlDestroy="route('clients.destroy', form.id ? form.id : 0)"
-        :form="form">
+    contentHeader="Clientes"
+    createTitle="Cadastrar novo Cliente"
+    updateTitle="Atualizar cadastro de Cliente"
+    :urlUpdate="route('clients.update', form.id ? form.id : 0)"
+    :urlStore="route('clients.store', form.id ? form.id : 0)"
+    :urlDestroy="route('clients.destroy', form.id ? form.id : 0)"
+    :form="form">
+    
         <!-- Name -->
-        <div class="d-flex flex-row flex-wrap justify-content-between">
+        <div class="d-flex flex-wrap justify-content-between">
             <div class="form-group">
                 <label class="form-label" for="client-name">Name</label>
                 <input
@@ -53,6 +54,9 @@
                     type="text"
                     placeholder="AAAA/MM/DD"
                     class="form-control"
+                    data-inputmask-alias="datetime" 
+                    data-inputmask-inputformat="dd/mm/yyyy" 
+                    data-maskinputmode="numeric"
                     :class="{ 'is-invalid': errors.birth }"
                     v-model="form.birth" />
                 <div class="invalid-feedback">{{ errors.birth }}</div>
@@ -82,7 +86,7 @@
                 <div class="invalid-feedback">{{ errors.cep }}</div>
             </div>
             <!-- Estado -->
-            <div class="form-group w-50">
+            <div class="form-group">
                 <label for="client-state">Estado</label>
                 <input
                     id="client-state"
@@ -94,7 +98,7 @@
                 <div class="invalid-feedback">{{ errors.state }}</div>
             </div>
             <!-- Cidade -->
-            <div class="form-group w-40">
+            <div class="form-group">
                 <label for="client-city">Cidade</label>
                 <input
                     id="client-city"
@@ -106,7 +110,7 @@
                 <div class="invalid-feedback">{{ errors.city }}</div>
             </div>
             <!-- Endereço -->
-            <div class="form-group w-40">
+            <div class="form-group">
                 <label for="client-address">Endereço</label>
                 <input
                     id="client-address"
@@ -120,6 +124,7 @@
         </div>
     </crud>
 </template>
+
 
 <script>
 import { useForm } from "@inertiajs/inertia-vue3";
