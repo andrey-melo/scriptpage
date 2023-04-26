@@ -1,14 +1,13 @@
 <template>
     <head> </head>
     <crud
-    contentHeader="Clientes"
-    createTitle="Cadastrar novo Cliente"
-    updateTitle="Atualizar cadastro de Cliente"
-    :urlUpdate="route('clients.update', form.id ? form.id : 0)"
-    :urlStore="route('clients.store', form.id ? form.id : 0)"
-    :urlDestroy="route('clients.destroy', form.id ? form.id : 0)"
-    :form="form">
-    
+        contentHeader="Clientes"
+        createTitle="Cadastrar novo Cliente"
+        updateTitle="Atualizar cadastro de Cliente"
+        :urlUpdate="route('clients.update', form.id ? form.id : 0)"
+        :urlStore="route('clients.store', form.id ? form.id : 0)"
+        :urlDestroy="route('clients.destroy', form.id ? form.id : 0)"
+        :form="form">
         <!-- Name -->
         <div class="d-flex flex-wrap justify-content-between">
             <div class="form-group">
@@ -31,7 +30,8 @@
                     placeholder="000.000.000-00"
                     class="form-control"
                     :class="{ 'is-invalid': errors.cpf }"
-                    v-model="form.cpf" />
+                    v-model="form.cpf" 
+                    />
                 <span class="invalid-feedback">{{ errors.cpf }}</span>
             </div>
             <!-- Email -->
@@ -52,13 +52,12 @@
                 <input
                     id="client-birth"
                     type="text"
-                    placeholder="AAAA/MM/DD"
                     class="form-control"
                     data-inputmask-alias="datetime" 
                     data-inputmask-inputformat="dd/mm/yyyy" 
-                    data-maskinputmode="numeric"
                     :class="{ 'is-invalid': errors.birth }"
-                    v-model="form.birth" />
+                    v-model="form.birth"
+                    />
                 <div class="invalid-feedback">{{ errors.birth }}</div>
             </div>
             <!-- Numero de Telefone -->
@@ -125,10 +124,12 @@
     </crud>
 </template>
 
-
 <script>
 import { useForm } from "@inertiajs/inertia-vue3";
 import Crud from "@/Scriptpage/Content/Crud.vue";
+
+
+
 
 export default {
     components: {
@@ -141,6 +142,7 @@ export default {
     },
 
     data() {
+        
         var data = this.data;
         return {
             form: useForm({
@@ -158,8 +160,18 @@ export default {
             }),
         };
     },
-
     mounted() {
+        var options =  {
+        onComplete: function(e) {
+            var event = document.createEvent('HTMLEvents');
+            event.initEvent('input', true, true);
+            e.currentTarget.dispatchEvent(event);
+            $("#client-birth").trigger('change');
+        }
+    };
+        $('#client-birth').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        
     },
 };
 </script>
+

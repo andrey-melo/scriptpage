@@ -27,6 +27,9 @@
     @routes
     <!-- App Starter -->
     <script src="{{ asset('/js/scriptpage_vue.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
 </head>
 
 <body class="hold-transition">

@@ -19969,7 +19969,19 @@ __webpack_require__.r(__webpack_exports__);
       })
     };
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var options = {
+      onComplete: function onComplete(e) {
+        var event = document.createEvent('HTMLEvents');
+        event.initEvent('input', true, true);
+        e.currentTarget.dispatchEvent(event);
+        $("#client-birth").trigger('change');
+      }
+    };
+    $('#client-birth').inputmask('dd/mm/yyyy', {
+      'placeholder': 'dd/mm/yyyy'
+    });
+  }
 });
 
 /***/ }),
@@ -20957,13 +20969,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.email]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.email), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Data de Nascimento "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         id: "client-birth",
         type: "text",
-        placeholder: "AAAA/MM/DD",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
           'is-invalid': $props.errors.birth
         }]),
         "data-inputmask-alias": "datetime",
         "data-inputmask-inputformat": "dd/mm/yyyy",
-        "data-maskinputmode": "numeric",
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.form.birth = $event;
         })
