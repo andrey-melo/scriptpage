@@ -45,7 +45,7 @@ class ClientCrud extends BaseCrud
             'cep' => $data['cep'],
             'state' => $data['state'],
             'city' => $data['city'],
-            'address' => $data['address']
+            'address' => $data['address'],
         ];
     }
 

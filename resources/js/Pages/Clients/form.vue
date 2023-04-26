@@ -82,7 +82,7 @@
                 <div class="invalid-feedback">{{ errors.cep }}</div>
             </div>
             <!-- Estado -->
-            <div class="form-group">
+            <div class="form-group w-50">
                 <label for="client-state">Estado</label>
                 <input
                     id="client-state"
@@ -94,7 +94,7 @@
                 <div class="invalid-feedback">{{ errors.state }}</div>
             </div>
             <!-- Cidade -->
-            <div class="form-group w-50">
+            <div class="form-group w-40">
                 <label for="client-city">Cidade</label>
                 <input
                     id="client-city"
@@ -106,7 +106,7 @@
                 <div class="invalid-feedback">{{ errors.city }}</div>
             </div>
             <!-- Endereço -->
-            <div class="form-group">
+            <div class="form-group w-40">
                 <label for="client-address">Endereço</label>
                 <input
                     id="client-address"

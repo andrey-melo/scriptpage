@@ -20886,7 +20886,7 @@ var _hoisted_20 = {
   "class": "invalid-feedback"
 };
 var _hoisted_21 = {
-  "class": "form-group"
+  "class": "form-group w-50"
 };
 var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "client-state"
@@ -20895,7 +20895,7 @@ var _hoisted_23 = {
   "class": "invalid-feedback"
 };
 var _hoisted_24 = {
-  "class": "form-group w-50"
+  "class": "form-group w-40"
 };
 var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "client-city"
@@ -20904,7 +20904,7 @@ var _hoisted_26 = {
   "class": "invalid-feedback"
 };
 var _hoisted_27 = {
-  "class": "form-group"
+  "class": "form-group w-40"
 };
 var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "client-address"
