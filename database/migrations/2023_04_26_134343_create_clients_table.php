@@ -24,6 +24,7 @@ class CreateClientsTable extends Migration
             $table->string('cep');
             $table->string('state');
             $table->string('city');
+            $table->string('address');
             $table->rememberToken();
             $table->timestamps();
         });

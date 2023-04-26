@@ -18,6 +18,7 @@
 					<th scope="col">CEP</th>
 					<th scope="col">Estado</th>
 					<th scope="col">Cidade</th>
+					<th scope="col">Endereço</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,6 +40,7 @@
 					<td>{{ client.cep }}</td>
 					<td>{{ client.state }}</td>
 					<td>{{ client.city }}</td>
+					<td>{{ client.address }}</td>
 				</tr>
 			</tbody>
 		</table>

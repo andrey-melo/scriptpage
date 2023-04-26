@@ -28,6 +28,7 @@ class Client extends Authenticatable
         'cep',
         'state',
         'city',
+        'address'
     ];
 
     /**
