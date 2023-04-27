@@ -125,7 +125,7 @@
 <script>
 import { useForm } from "@inertiajs/inertia-vue3";
 import Crud from "@/Scriptpage/Content/Crud.vue";
-
+import vueMask from 'vue-jquery-mask';
 
 
 
