@@ -49,16 +49,4 @@ class ClientCrud extends BaseCrud
         ];
     }
 
-
-    // function store()
-    // {
-    //     $client = parent::store();
-    //     return $client;
-    // }
-
-    // function update($id)
-    // {
-    //     $client = parent::update($id);
-    //     return $client;
-    // }
 }

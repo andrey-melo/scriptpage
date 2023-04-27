@@ -53,8 +53,6 @@
                     id="client-birth"
                     type="text"
                     class="form-control"
-                    data-inputmask-alias="datetime" 
-                    data-inputmask-inputformat="dd/mm/yyyy" 
                     :class="{ 'is-invalid': errors.birth }"
                     v-model="form.birth"
                     />
@@ -131,7 +129,7 @@ import Crud from "@/Scriptpage/Content/Crud.vue";
 
 
 
-export default {
+export default{
     components: {
         Crud,
     },
@@ -161,15 +159,7 @@ export default {
         };
     },
     mounted() {
-        var options =  {
-        onComplete: function(e) {
-            var event = document.createEvent('HTMLEvents');
-            event.initEvent('input', true, true);
-            e.currentTarget.dispatchEvent(event);
-            $("#client-birth").trigger('change');
-        }
-    };
-        $('#client-birth').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    
         
     },
 };
