@@ -6,6 +6,9 @@
     import { defineComponent } from 'vue'
 
     export default defineComponent({
+        components:{
+
+        },
         props: ['modelValue'],
 
         emits: ['update:modelValue'],
@@ -14,6 +17,7 @@
             focus() {
                 this.$refs.input.focus()
             }
-        }
+        },
+       
     })
 </script>

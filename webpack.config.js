@@ -1,13 +1,6 @@
 const path = require('path');
 
 module.exports = {
-    plugins:[
-        new webpack.ProvidePlugin({     
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-            $: 'jquery',     
-          }),
-        ],
     resolve: {
         alias: {
             '@': path.resolve('resources/js'),

@@ -30,8 +30,7 @@
                     placeholder="000.000.000-00"
                     class="form-control"
                     :class="{ 'is-invalid': errors.cpf }"
-                    v-model="form.cpf" 
-                    />
+                    v-model="form.cpf" />
                 <span class="invalid-feedback">{{ errors.cpf }}</span>
             </div>
             <!-- Email -->
@@ -53,9 +52,9 @@
                     id="client-birth"
                     type="text"
                     class="form-control"
-                    :class="{ 'is-invalid': errors.birth }"
+                    v-input-mask="'dd/mm/yyyy'"
                     v-model="form.birth"
-                    />
+                    :class="{ 'is-invalid': errors.birth }" />
                 <div class="invalid-feedback">{{ errors.birth }}</div>
             </div>
             <!-- Numero de Telefone -->
@@ -64,10 +63,10 @@
                 <input
                     id="client-tel_num"
                     type="text"
-                    placeholder="(DDD)99999-9999"
+                    v-input-mask="'(99)99999-9999'"
                     class="form-control"
-                    :class="{ 'is-invalid': errors.tel_num }"
-                    v-model="form.tel_num" />
+                    v-model="form.tel_num"
+                    :class="{ 'is-invalid': errors.tel_num }" />
                 <div class="invalid-feedback">{{ errors.tel_num }}</div>
             </div>
             <!-- CEP -->
@@ -115,32 +114,50 @@
                     placeholder="Rua example, 123"
                     class="form-control"
                     :class="{ 'is-invalid': errors.address }"
-                    v-model="form.address" />
+                    v-model="form.address"/>
                 <div class="invalid-feedback">{{ errors.address }}</div>
             </div>
         </div>
+
+        
     </crud>
 </template>
 
 <script>
 import { useForm } from "@inertiajs/inertia-vue3";
 import Crud from "@/Scriptpage/Content/Crud.vue";
-import vueMask from 'vue-jquery-mask';
+import Input from "@/Components/Input.vue";
 
 
 
-export default{
+
+export default {
     components: {
         Crud,
+        Input,
+
     },
 
     props: {
         errors: Object,
         data: Object,
     },
+    directives: {
+    inputMask: {
+      bind(el, binding) {
+        $(el).inputmask(binding.value)
+        $(el).on('input', () => {
+          el.dispatchEvent(new Event('input'))
+        })
+      },
+      update(el) {
+        $(el).trigger('input')
+      }
+    }
+},
 
     data() {
-        
+
         var data = this.data;
         return {
             form: useForm({
@@ -159,9 +176,20 @@ export default{
         };
     },
     mounted() {
-    
+        $('#client-birth').inputmask('dd/mm/yyyy', {
+            separator: "/",
+            unmaskedValue: true,
+            showMaskOnHover: true,
+        });
+        $('#client-tel_num').inputmask('(99) 99999-9999', {
+            showMaskOnHover: true,
+            unmaske: true,
+        });
         
     },
+
+
+
 };
 </script>
 
