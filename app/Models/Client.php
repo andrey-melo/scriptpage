@@ -36,7 +36,6 @@ class Client extends Authenticatable
   
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'birth' => 'datetime:dd/mm/yyyy',
     ];
 
     // protected $attributes = [

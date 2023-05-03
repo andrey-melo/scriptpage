@@ -16,7 +16,7 @@
                     id="client-name"
                     type="text"
                     placeholder="Nome completo"
-                    class="form-control"
+                    class="form-control data-mask"
                     :class="{ 'is-invalid': errors.name }"
                     v-model="form.name" />
                 <span class="invalid-feedback">{{ errors.name }}</span>
@@ -28,7 +28,7 @@
                     id="client-cpf"
                     type="text"
                     placeholder="000.000.000-00"
-                    class="form-control"
+                    class="form-control data-mask"
                     :class="{ 'is-invalid': errors.cpf }"
                     v-model="form.cpf" />
                 <span class="invalid-feedback">{{ errors.cpf }}</span>
@@ -40,7 +40,7 @@
                     id="client-email"
                     type="text"
                     placeholder="example@email.com"
-                    class="form-control"
+                    class="form-control data-mask"
                     :class="{ 'is-invalid': errors.email }"
                     v-model="form.email" />
                 <div class="invalid-feedback">{{ errors.email }}</div>
@@ -51,10 +51,12 @@
                 <input
                     id="client-birth"
                     type="text"
-                    class="form-control"
-                    v-input-mask="'dd/mm/yyyy'"
-                    v-model="form.birth"
-                    :class="{ 'is-invalid': errors.birth }" />
+                    data-inputmask-alias="datetime" 
+                    data-inputmask-inputformat="yyyy/mm/dd"
+                    data-mask
+                    class="form-control data-mask"
+                    :class="{ 'is-invalid': errors.birth }"
+                    v-model="form.birth" />
                 <div class="invalid-feedback">{{ errors.birth }}</div>
             </div>
             <!-- Numero de Telefone -->
@@ -63,8 +65,7 @@
                 <input
                     id="client-tel_num"
                     type="text"
-                    v-input-mask="'(99)99999-9999'"
-                    class="form-control"
+                    class="form-control data-mask"
                     v-model="form.tel_num"
                     :class="{ 'is-invalid': errors.tel_num }" />
                 <div class="invalid-feedback">{{ errors.tel_num }}</div>
@@ -76,7 +77,7 @@
                     id="client-cep"
                     type="text"
                     placeholder="00000-000"
-                    class="form-control"
+                    class="form-control data-mask"
                     :class="{ 'is-invalid': errors.cep }"
                     v-model="form.cep" />
                 <div class="invalid-feedback">{{ errors.cep }}</div>
@@ -88,7 +89,7 @@
                     id="client-state"
                     type="text"
                     placeholder="Estado"
-                    class="form-control"
+                    class="form-control data-mask"
                     :class="{ 'is-invalid': errors.state }"
                     v-model="form.state" />
                 <div class="invalid-feedback">{{ errors.state }}</div>
@@ -100,7 +101,7 @@
                     id="client-city"
                     type="text"
                     placeholder="Cidade"
-                    class="form-control"
+                    class="form-control data-mask"
                     :class="{ 'is-invalid': errors.city }"
                     v-model="form.city" />
                 <div class="invalid-feedback">{{ errors.city }}</div>
@@ -112,29 +113,29 @@
                     id="client-address"
                     type="text"
                     placeholder="Rua example, 123"
-                    class="form-control"
+                    class="form-control data-mask"
                     :class="{ 'is-invalid': errors.address }"
-                    v-model="form.address"/>
+                    v-model="form.address" />
                 <div class="invalid-feedback">{{ errors.address }}</div>
             </div>
         </div>
-
-        
     </crud>
 </template>
 
 <script>
+
 import { useForm } from "@inertiajs/inertia-vue3";
 import Crud from "@/Scriptpage/Content/Crud.vue";
-import Input from "@/Components/Input.vue";
+
 
 
 
 
 export default {
+
+   
     components: {
         Crud,
-        Input,
 
     },
 
@@ -142,19 +143,6 @@ export default {
         errors: Object,
         data: Object,
     },
-    directives: {
-    inputMask: {
-      bind(el, binding) {
-        $(el).inputmask(binding.value)
-        $(el).on('input', () => {
-          el.dispatchEvent(new Event('input'))
-        })
-      },
-      update(el) {
-        $(el).trigger('input')
-      }
-    }
-},
 
     data() {
 
@@ -176,19 +164,19 @@ export default {
         };
     },
     mounted() {
-        $('#client-birth').inputmask('dd/mm/yyyy', {
-            separator: "/",
-            unmaskedValue: true,
-            showMaskOnHover: true,
+        var form = this.form;
+
+        $('#client-tel_num').inputmask('(99) 9 9999-9999');
+        $('#client-birth').inputmask('yyyy/mm/dd');
+
+
+        $('.data-mask').on("input", function (e) {
+            form.tel_num = $('#client-tel_num').inputmask("unmaskedvalue");
+            form.birth = $('#client-birth').inputmask("unmaskedvalue");
         });
-        $('#client-tel_num').inputmask('(99) 99999-9999', {
-            showMaskOnHover: true,
-            unmaske: true,
-        });
-        
+
     },
-
-
+    
 
 };
 </script>
