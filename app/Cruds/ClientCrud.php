@@ -36,11 +36,18 @@ class ClientCrud extends BaseCrud
 
     function setDataPayload(array $data): array
     {
+        // $birthDate = DateTime::createFromFormat('d/m/Y', $data['birth']);
+        // $formattedBirthDate = $birthDate->format('Y/m/d');
+        // dd($formattedBirthDate);
+        $birthDate = $data['birth'];
+        $birthDate = explode('/', $birthDate);
+        $invertedDateString = implode('-', array_reverse($birthDate));
+      
         return [
             'name' => $data['name'],
             'cpf' => $data['cpf'],
             'email' => $data['email'],
-            'birth' => $data['birth'],
+            'birth' => $invertedDateString,
             'tel_num' => $data['tel_num'],
             'cep' => $data['cep'],
             'state' => $data['state'],

@@ -19972,10 +19972,14 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var form = this.form;
     $('#client-tel_num').inputmask('(99) 9 9999-9999');
-    $('#client-birth').inputmask('yyyy/mm/dd');
+    $('#client-birth').inputmask('dd/mm/yyyy');
+    $('#client-cpf').inputmask('999.999.999-99');
+    $('#client-cep').inputmask('99999-999');
     $('.data-mask').on("input", function (e) {
       form.tel_num = $('#client-tel_num').inputmask("unmaskedvalue");
       form.birth = $('#client-birth').inputmask("unmaskedvalue");
+      form.cpf = $('#client-cpf').inputmask("unmaskedvalue");
+      form.cep = $('#client-cep').inputmask("unmaskedvalue");
     });
   }
 });
@@ -20966,8 +20970,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         id: "client-birth",
         type: "text",
         "data-inputmask-alias": "datetime",
-        "data-inputmask-inputformat": "yyyy/mm/dd",
-        "data-mask": "",
+        "data-inputmask-inputformat": "dd/mm/yyyy",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control data-mask", {
           'is-invalid': $props.errors.birth
         }]),
