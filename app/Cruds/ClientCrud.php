@@ -5,6 +5,7 @@ namespace App\Cruds;
 use App\Models\Client;
 use App\Scriptpage\Repository\BaseCrud;
 
+
 class ClientCrud extends BaseCrud
 {
 
@@ -36,13 +37,10 @@ class ClientCrud extends BaseCrud
 
     function setDataPayload(array $data): array
     {
-        // $birthDate = DateTime::createFromFormat('d/m/Y', $data['birth']);
-        // $formattedBirthDate = $birthDate->format('Y/m/d');
-        // dd($formattedBirthDate);
         $birthDate = $data['birth'];
         $birthDate = explode('/', $birthDate);
         $invertedDateString = implode('-', array_reverse($birthDate));
-      
+    
         return [
             'name' => $data['name'],
             'cpf' => $data['cpf'],
@@ -56,4 +54,5 @@ class ClientCrud extends BaseCrud
         ];
     }
 
+  
 }

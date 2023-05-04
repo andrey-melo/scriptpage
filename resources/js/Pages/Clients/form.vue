@@ -27,7 +27,7 @@
                 <input
                     id="client-cpf"
                     type="text"
-                    placeholder="000.000.000-00"
+                    placeholder="999.999.999-99"
                     class="form-control data-mask"
                     :class="{ 'is-invalid': errors.cpf }"
                     v-model="form.cpf" />
@@ -54,6 +54,7 @@
                     data-inputmask-alias="datetime"
                     data-inputmask-inputformat="dd/mm/yyyy"
                     class="form-control data-mask"
+                    placeholder="dd/mm/yyyy"
                     :class="{ 'is-invalid': errors.birth }"
                     v-model="form.birth" />
                 <div class="invalid-feedback">{{ errors.birth }}</div>
@@ -64,6 +65,7 @@
                 <input
                     id="client-tel_num"
                     type="text"
+                    placeholder="(99) 9 9999-9999"
                     class="form-control data-mask"
                     v-model="form.tel_num"
                     :class="{ 'is-invalid': errors.tel_num }" />
@@ -75,7 +77,7 @@
                 <input
                     id="client-cep"
                     type="text"
-                    placeholder="00000-000"
+                    placeholder="99999-999"
                     class="form-control data-mask"
                     :class="{ 'is-invalid': errors.cep }"
                     v-model="form.cep" />

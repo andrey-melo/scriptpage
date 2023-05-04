@@ -16,8 +16,11 @@ class ClientController extends CrudController
 
     protected function dataEdit($id = null, $id2 = null)
     {
+        $birthDate = $this->repository->find($id);
+        $dateUpdate = explode('-', $birthDate['birth']);
+        $birthDate['birth'] = implode('/', array_reverse($dateUpdate));
         return [
-            'data' => $this->repository->find($id)
+            'data' => $birthDate
         ];
     }
 }
