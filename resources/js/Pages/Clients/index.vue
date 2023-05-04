@@ -1,7 +1,7 @@
 <template>
 	<index
 		contentHeader="Client Manager"
-		pageTitle="Clients"
+		pageTitle="Clientes"
 		:urlButton="route('clients.create')"
 		:paginator="paginator"
 		:urlSearch="route('clients.index')">

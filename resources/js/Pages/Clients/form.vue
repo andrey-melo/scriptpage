@@ -8,6 +8,7 @@
         :urlStore="route('clients.store', form.id ? form.id : 0)"
         :urlDestroy="route('clients.destroy', form.id ? form.id : 0)"
         :form="form">
+
         <!-- Name -->
         <div class="d-flex flex-wrap justify-content-between">
             <div class="form-group">
@@ -21,6 +22,8 @@
                     v-model="form.name" />
                 <span class="invalid-feedback">{{ errors.name }}</span>
             </div>
+
+
             <!-- CPF -->
             <div class="form-group">
                 <label for="client-cpf">CPF</label>
@@ -33,6 +36,8 @@
                     v-model="form.cpf" />
                 <span class="invalid-feedback">{{ errors.cpf }}</span>
             </div>
+
+
             <!-- Email -->
             <div class="form-group">
                 <label for="client-email">Email</label>
@@ -45,6 +50,8 @@
                     v-model="form.email" />
                 <div class="invalid-feedback">{{ errors.email }}</div>
             </div>
+
+
             <!-- Data de Nascimento -->
             <div class="form-group">
                 <label for="client-birth">Data de Nascimento</label>
@@ -59,6 +66,8 @@
                     v-model="form.birth" />
                 <div class="invalid-feedback">{{ errors.birth }}</div>
             </div>
+
+
             <!-- Numero de Telefone -->
             <div class="form-group">
                 <label for="client-tel_num">Telefone</label>
@@ -71,6 +80,8 @@
                     :class="{ 'is-invalid': errors.tel_num }" />
                 <div class="invalid-feedback">{{ errors.tel_num }}</div>
             </div>
+
+
             <!-- CEP -->
             <div class="form-group">
                 <label for="client-cep">CEP</label>
@@ -83,6 +94,8 @@
                     v-model="form.cep" />
                 <div class="invalid-feedback">{{ errors.cep }}</div>
             </div>
+
+
             <!-- Estado -->
             <div class="form-group">
                 <label for="client-state">Estado</label>
@@ -95,6 +108,8 @@
                     v-model="form.state" />
                 <div class="invalid-feedback">{{ errors.state }}</div>
             </div>
+
+
             <!-- Cidade -->
             <div class="form-group">
                 <label for="client-city">Cidade</label>
@@ -107,6 +122,8 @@
                     v-model="form.city" />
                 <div class="invalid-feedback">{{ errors.city }}</div>
             </div>
+
+
             <!-- Endereço -->
             <div class="form-group">
                 <label for="client-address">Endereço</label>
@@ -120,15 +137,20 @@
                 <div class="invalid-feedback">{{ errors.address }}</div>
             </div>
         </div>
-    </crud>
+      
+
+      <span class="invalid-feedback">{{ errors.address }}</span>
+  
+  </crud>
 </template>
 
-<script>
 
+
+
+
+<script>
 import { useForm } from "@inertiajs/inertia-vue3";
 import Crud from "@/Scriptpage/Content/Crud.vue";
-
-
 
 
 

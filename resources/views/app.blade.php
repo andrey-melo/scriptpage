@@ -28,6 +28,8 @@
     <!-- App Starter -->
     <script src="{{ asset('/js/scriptpage_vue.js') }}" defer></script>
 
+    
+
 </head>
 
 <body class="hold-transition">
