@@ -27,6 +27,9 @@
     @routes
     <!-- App Starter -->
     <script src="{{ asset('/js/scriptpage_vue.js') }}" defer></script>
+
+    
+
 </head>
 
 <body class="hold-transition">
@@ -34,7 +37,7 @@
     @inertia
 
     <!-- REQUIRED SCRIPTS -->
-    
+
     <!-- jQuery -->
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->

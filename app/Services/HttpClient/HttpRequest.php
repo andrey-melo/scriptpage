@@ -37,7 +37,20 @@ class HttpRequest
         }
         return $this->client;
     }
-
+    function getCityStateFromCep($cep) {
+        $client = new Client();
+        $url = "https://viacep.com.br/ws/$cep/json/";
+    
+        $response = $client->get($url);
+        $json = $response->getBody();
+    
+        $data = json_decode($json);
+    
+        $city = $data->localidade;
+        $state = $data->uf;
+    
+        return compact('city', 'state');
+    }
     /**
      * setConfig
      *
